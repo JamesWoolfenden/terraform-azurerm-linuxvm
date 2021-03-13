@@ -35,7 +35,7 @@ resource "azurerm_linux_virtual_machine" "example" {
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location
   size                = "Standard_F2"
-  admin_username      = "adminuser"
+  admin_username      = var.admin_user
 
   allow_extension_operations = false
 
@@ -44,8 +44,8 @@ resource "azurerm_linux_virtual_machine" "example" {
   ]
 
   admin_ssh_key {
-    username   = "adminuser"
-    public_key = file("~/.ssh/id_rsa.pub")
+    username   = var.admin_user
+    public_key = var.public_key
   }
 
   os_disk {
@@ -59,4 +59,8 @@ resource "azurerm_linux_virtual_machine" "example" {
     sku       = "16.04-LTS"
     version   = "latest"
   }
+}
+
+variable "admin_user" {
+  default = "adminuser"
 }
