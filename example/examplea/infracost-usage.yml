@@ -1,0 +1,5 @@
+version: 0.1
+resource_usage:
+  module.linuxvm.azurerm_linux_virtual_machine.example:
+    os_disk:
+      monthly_disk_operations: 0
