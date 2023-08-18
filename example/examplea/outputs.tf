@@ -1,3 +1,3 @@
 output "vm" {
-    value = module.linuxvm
+  value = module.linuxvm
 }

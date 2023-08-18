@@ -29,4 +29,3 @@ resource "azurerm_linux_virtual_machine" "example" {
     version   = var.source_image_reference.version
   }
 }
-

@@ -10,21 +10,21 @@ variable "public_key" {
 variable "source_image_reference" {
   type = object({
     publisher = string
-    offer =string
-    sku=string
-    version=string
+    offer     = string
+    sku       = string
+    version   = string
   })
-  
+
   description = ""
 }
 
 variable "rg_name" {
-  type = string
+  type        = string
   description = ""
 }
 
 variable "location" {
-  type = string
+  type        = string
   description = ""
 }
 
@@ -33,19 +33,19 @@ variable "admin_user" {
 }
 
 variable "name" {
-  type = string
+  type        = string
   description = ""
-  default = "pike"
+  default     = "pike"
 }
 
 
 variable "size" {
-  type = string
+  type        = string
   description = "(optional) describe your variable"
-  default = "Standard_B1ls"
+  default     = "Standard_B1ls"
 }
 
 variable "subnet_id" {
-  type = string
+  type        = string
   description = ""
 }

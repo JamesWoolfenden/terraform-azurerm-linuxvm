@@ -51,9 +51,6 @@ No modules.
 |------|------|
 | [azurerm_linux_virtual_machine.example](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_virtual_machine) | resource |
 | [azurerm_network_interface.example](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface) | resource |
-| [azurerm_resource_group.example](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) | resource |
-| [azurerm_subnet.example](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet) | resource |
-| [azurerm_virtual_network.example](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network) | resource |
 
 ## Inputs
 
@@ -61,7 +58,13 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_admin_user"></a> [admin\_user](#input\_admin\_user) | n/a | `string` | `"adminuser"` | no |
 | <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | This is to help you add tags to your cloud objects | `map(any)` | n/a | yes |
+| <a name="input_location"></a> [location](#input\_location) | n/a | `string` | n/a | yes |
+| <a name="input_name"></a> [name](#input\_name) | n/a | `string` | `"pike"` | no |
 | <a name="input_public_key"></a> [public\_key](#input\_public\_key) | n/a | `string` | n/a | yes |
+| <a name="input_rg_name"></a> [rg\_name](#input\_rg\_name) | n/a | `string` | n/a | yes |
+| <a name="input_size"></a> [size](#input\_size) | (optional) describe your variable | `string` | `"Standard_B1ls"` | no |
+| <a name="input_source_image_reference"></a> [source\_image\_reference](#input\_source\_image\_reference) | n/a | <pre>object({<br>    publisher = string<br>    offer     = string<br>    sku       = string<br>    version   = string<br>  })</pre> | n/a | yes |
+| <a name="input_subnet_id"></a> [subnet\_id](#input\_subnet\_id) | n/a | `string` | n/a | yes |
 
 ## Outputs
 
@@ -94,17 +97,9 @@ resource "azurerm_role_definition" "terraform_pike" {
     "Microsoft.Network/networkInterfaces/join/action",
     "Microsoft.Network/networkInterfaces/read",
     "Microsoft.Network/networkInterfaces/write",
-    "Microsoft.Network/virtualNetworks/delete",
-    "Microsoft.Network/virtualNetworks/read",
-    "Microsoft.Network/virtualNetworks/subnets/delete",
     "Microsoft.Network/virtualNetworks/subnets/join/action",
     "Microsoft.Network/virtualNetworks/subnets/read",
-    "Microsoft.Network/virtualNetworks/subnets/write",
-    "Microsoft.Network/virtualNetworks/write",
-    "Microsoft.Resources/subscriptions/providers/read",
-    "Microsoft.Resources/subscriptions/resourcegroups/delete",
-    "Microsoft.Resources/subscriptions/resourcegroups/read",
-    "Microsoft.Resources/subscriptions/resourcegroups/write"]
+    "Microsoft.Resources/subscriptions/resourcegroups/read"]
     not_actions = []
   }
 

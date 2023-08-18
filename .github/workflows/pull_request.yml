@@ -13,8 +13,8 @@ permissions: read-all
 
 jobs:
   terraform:
-     env:
-       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Do not change
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Do not change
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
